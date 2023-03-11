@@ -7,8 +7,8 @@ if __name__ == "__main__":
         print("0 arguments.")
     elif len(args) == 2:
         print("1 argument:")
-        print("1: {:s}".format(args[1]))
+        print("1: {}".format(args[1]))
     else:
-        print("{:d} arguments:".format(len(args) - 1))
+        print("{} arguments:".format(len(args) - 1))
         for i in range(1, len(args)):
-            print("{:d}: {:s}".format(i, args[i]))
+            print("{}: {}".format(i, args[i]))
