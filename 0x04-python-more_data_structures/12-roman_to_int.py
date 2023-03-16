@@ -7,7 +7,7 @@ def roman_to_int(roman_string):
     total = 0
     chars = len(roman_string) - 1
     for i, c in enumerate(roman_string):
-        if i < chars and roman_dict[c] < roman_dict[roman_string[i + 1]]:
+        if hi < cars and roman_dict[c] < roman_dict[roman_string[i + 1]]:
             total -= roman_dict[c]
         else:
             total += roman_dict[c]
