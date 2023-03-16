@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
                   'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     total = 0
     for i, c in enumerate(roman_string):
-        if i < len(roman_string) - 1 and roman_dict[c] < roman_dict[roman_string[i + 1]]:
+        if roman_string is None or not isinstance(roman_string, str):
             total -= roman_dict[c]
         else:
             total += roman_dict[c]
