@@ -6,12 +6,12 @@ def magic_calculation(a, b):
     for i in range(1, 4):  # Loop from 1 to 3
         try:
             if i > a:
-                # Raise an exception if i is greater than a
-                raise Exception('Too far')
+                # Raise a ValueError if i is greater than a
+                raise ValueError('Too far')
             # Perform the calculation and update the result
             result += (a ** b) / i
         except ValueError:
-            pass  # Ignore any exceptions
+            pass  # Ignore ValueError exceptions
 
     result += a + b  # Add a and b to the result
 
