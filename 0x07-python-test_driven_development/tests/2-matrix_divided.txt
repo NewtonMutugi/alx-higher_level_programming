@@ -1,0 +1,41 @@
+The ``matrix_divided`` module
+==========================
+
+using matrix_divided
+--------------------
+
+	# import the module
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+	# Case 1:
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+	# Case 2:
+	>>> matrix_divided(matrix, 0)
+	Traceback (most recent call last):
+	  ...
+	ZeroDivisionError: division by zero
+
+	# Case 3:
+	>>> matrix = [[1, 'a', 3], [4, 5, 6]]
+	>>> matrix_divided(matrix, 4)
+	Traceback (most recent call last):
+		...
+	TypeError: unsupported operand type(s) for /: 'str' and 'int'
+
+	Case 4:
+	>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8]]
+	>>> matrix_divided(matrix, 2)
+	Traceback (most recent call last):
+	  ...
+	TypeError: Each row of the matrix must have the same size
+
+	Case 5:
+	>>> matrix = [[1, 2, 3], [4, 5]]
+	>>> matrix_divided(matrix, 2)
+	Traceback (most recent call last):
+	  ...
+	TypeError: Each row of the matrix must have the same size
+
