@@ -31,8 +31,16 @@ Case 4:
 	TypeError: text_indentation() takes 1 positional argument but 2 were given
 
 Case 5:
-	text_indentation("My name is Newton Mutugi. I from Nairobi \nKenya.")
+	>>> text_indentation("My name is Newton Mutugi. I from Nairobi Kenya.\n")
 	My name is Newton Mutugi.
+    	<BLANKLINE>
+     	 I from Nairobi Kenya.
+    	<BLANKLINE>
+	<BLANKLINE>
 
- 	 I from Nairobi
- 	Kenya.
+Case 6:
+	>>> text_indentation("My name is Newton Mutugi? I from Nairobi Kenya.")
+	My name is Newton Mutugi?
+    	<BLANKLINE>
+     	 I from Nairobi Kenya.
+    	<BLANKLINE>
