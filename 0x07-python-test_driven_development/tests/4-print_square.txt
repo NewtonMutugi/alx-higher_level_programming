@@ -27,7 +27,6 @@ Case 2:
 
 Case 3:
 	>>> print_square(0)
-	>>>
 
 Case 4:
 	>>> print_square(-1)
