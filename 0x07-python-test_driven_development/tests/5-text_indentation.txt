@@ -1,0 +1,38 @@
+The ``text_indentation`` module
+===============================
+
+using text_indentation
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Case 1:
+	>>> text_indentation("My name is Newton Mutugi. I from Nairobi Kenya.")
+	My name is Newton Mutugi.
+	<BLANKLINE>
+ 	 I from Nairobi Kenya.
+	<BLANKLINE>
+
+Case 2:
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Case 3:
+	>>> text_indentation(12)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+Case 4:
+	>>> text_indentation("My name is Newton Mutugi. I from Nairobi Kenya.",12)
+	Traceback (most recent call last):
+	  ...
+	TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Case 5:
+	text_indentation("My name is Newton Mutugi. I from Nairobi \nKenya.")
+	My name is Newton Mutugi.
+
+ 	 I from Nairobi
+ 	Kenya.
