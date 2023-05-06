@@ -1,0 +1,110 @@
+The ``print_square`` module
+===========================
+
+using print_square
+
+	>>> print_square = __import__('4-print_square').print_square
+
+Case 1:
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+
+Case 2:
+	>>> print_square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+Case 3:
+	>>> print_square(0)
+	>>>
+
+Case 4:
+	>>> print_square(-1)
+	Traceback (most recent call last):
+	...
+    	ValueError: size must be >=0
+
+Case 5:
+	>>> print_square(4.5)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 6:
+	>>> print_square('4')
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 7:
+	>>> print_square([4])
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 8:
+	>>> print_square((4,))
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 9:
+	>>> print_square({4})
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 10:
+	>>> print_square({'4': 4})
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 11:
+	>>> print_square(None)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 12:
+	>>> print_square(True)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 13:
+	>>> print_square(False)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Case 14:
+	>>> print_square()
+	Traceback (most recent call last):
+	...
+	TypeError: print_square() missing 1 required positional argument: 'size'
+
+Case 15:
+	>>> print_square(4, 4)
+	Traceback (most recent call last):
+	...
+	TypeError: print_square() takes 1 positional argument but 2 were given
+
+Case 16:
+	>>> print_square(4, 4, 4)
+	Traceback (most recent call last):
+	...
+	TypeError: print_square() takes 1 positional argument but 3 were given
+
+
