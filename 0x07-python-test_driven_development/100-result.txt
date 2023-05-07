@@ -1,0 +1,122 @@
+Trying:
+    matrix_mul = __import__('100-matrix_mul').matrix_mul
+Expecting nothing
+ok
+Trying:
+    matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+Expecting:
+    [[19, 22], [43, 50]]
+ok
+Trying:
+    matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8, 9]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+**********************************************************************
+File "./tests/100-matrix_mul.txt", line 21, in 100-matrix_mul.txt
+Failed example:
+    matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8, 9]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 100-matrix_mul.txt[2]>", line 1, in <module>
+        matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8, 9]])
+      File "/mnt/g/Education/ALX/alx-higher_level_programming/0x07-python-test_driven_development/100-matrix_mul.py", line 33, in matrix_mul
+        raise TypeError("each row of m_b must be of the same size")
+    TypeError: each row of m_b must be of the same size
+Trying:
+    matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+**********************************************************************
+File "./tests/100-matrix_mul.txt", line 28, in 100-matrix_mul.txt
+Failed example:
+    matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+Expected:
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+Got:
+    [[58, 64], [139, 154]]
+Trying:
+    matrix_mul([], [])
+Expecting:
+    Traceback (most recent call last):
+      ...
+    ValueError: m_a can't be empty
+ok
+Trying:
+    matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+Expecting:
+    Traceback (most recent call last):
+      ...
+    TypeError: each row of m_a must be of the same size
+**********************************************************************
+File "./tests/100-matrix_mul.txt", line 41, in 100-matrix_mul.txt
+Failed example:
+    matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+Expected:
+    Traceback (most recent call last):
+      ...
+    TypeError: each row of m_a must be of the same size
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 100-matrix_mul.txt[5]>", line 1, in <module>
+        matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+      File "/mnt/g/Education/ALX/alx-higher_level_programming/0x07-python-test_driven_development/100-matrix_mul.py", line 35, in matrix_mul
+        raise ValueError("m_a and m_b can't be multiplied")
+    ValueError: m_a and m_b can't be multiplied
+Trying:
+    matrix_mul([[1, 2], [3, 'four']], [[5, 6], [7, 8]])
+Expecting:
+    Traceback (most recent call last):
+      ...
+    TypeError: m_a should contain only integers or floats
+ok
+Trying:
+    matrix_mul(3, 'abc')
+Expecting:
+    Traceback (most recent call last):
+      ...
+    TypeError: m_a must be a list
+ok
+Trying:
+    matrix_mul([[1.2, 3.4], [5.6, 7.8]], [[9.0, 8.0], [7.0, 6.0]])
+Expecting:
+    [[37.8, 31.6], [105.0, 87.2]]
+**********************************************************************
+File "./tests/100-matrix_mul.txt", line 59, in 100-matrix_mul.txt
+Failed example:
+    matrix_mul([[1.2, 3.4], [5.6, 7.8]], [[9.0, 8.0], [7.0, 6.0]])
+Expected:
+    [[37.8, 31.6], [105.0, 87.2]]
+Got:
+    [[34.6, 30.0], [105.0, 91.6]]
+Trying:
+    matrix_mul([[-1, 2], [3, -4]], [[5, 6], [-7, 8]])
+Expecting:
+    [[3, -2], [-29, -2]]
+**********************************************************************
+File "./tests/100-matrix_mul.txt", line 63, in 100-matrix_mul.txt
+Failed example:
+    matrix_mul([[-1, 2], [3, -4]], [[5, 6], [-7, 8]])
+Expected:
+    [[3, -2], [-29, -2]]
+Got:
+    [[-19, 10], [43, -14]]
+**********************************************************************
+1 items had failures:
+   5 of  10 in 100-matrix_mul.txt
+10 tests in 1 items.
+5 passed and 5 failed.
+***Test Failed*** 5 failures.

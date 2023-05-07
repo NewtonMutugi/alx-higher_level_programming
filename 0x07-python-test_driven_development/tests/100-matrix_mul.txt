@@ -1,0 +1,62 @@
+The ``matrix_mul`` module
+===============================
+
+This module provides a function to multiply two matrices.
+The matrices are 2-dimensional matrices of arbitrary size.
+The function returns the result of the multiplication.
+
+import module::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Use the function::
+
+Case 1: Valid matrices::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+    [[19, 22], [43, 50]]
+
+Case 2: Invalid matrices::
+
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8, 9]])
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+
+Case 3: Interesting matrices::
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    [[58, 64], [139, 154]]
+
+Case 4: Empty matrices
+
+    >>> matrix_mul([], [])
+    Traceback (most recent call last):
+      ...
+    ValueError: m_a can't be empty
+
+Case 5: Matrices with different row sizes
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+    Traceback (most recent call last):
+      ...
+    ValueError: m_a and m_b can't be multiplied
+
+Case 6: Matrices with invalid element types
+    >>> matrix_mul([[1, 2], [3, 'four']], [[5, 6], [7, 8]])
+    Traceback (most recent call last):
+      ...
+    TypeError: m_a should contain only integers or floats
+
+Case 7: Matrices with invalid input types
+    >>> matrix_mul(3, 'abc')
+    Traceback (most recent call last):
+      ...
+    TypeError: m_a must be a list
+
+Case 8: Matrices with decimal values
+    >>> matrix_mul([[1.2, 3.4], [5.6, 7.8]], [[9.0, 8.0], [7.0, 6.0]])
+    [[34.6, 30.0], [105.0, 91.6]]
+
+Case 9: Matrices with negative values
+    >>> matrix_mul([[-1, 2], [3, -4]], [[5, 6], [-7, 8]])
+    [[-19, 10], [43, -14]]
