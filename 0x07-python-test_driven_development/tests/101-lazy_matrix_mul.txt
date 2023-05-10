@@ -1,0 +1,73 @@
+The ``lazy_ matrix_mul`` module
+===============================
+
+
+This module contains a function that multiplies 2 matrices using the module
+``NumPy``.
+
+import module::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> import numpy as np
+
+Case 1: Invalid input type::
+
+    >>> lazy_matrix_mul(1, [[2, 3], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
+
+Case 2: Empty matrix
+
+    >>> lazy_matrix_mul([], [[2, 3], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
+
+Case 3: Invalid value type in matrix
+
+    >>> lazy_matrix_mul([[1, 'a'], [3, 4]], [[2, 3], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+Case 4: Incompatible matrix size
+
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
+
+Case 5: Correct multiplication
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 7, 10],
+           [15, 22]])
+
+Case 6: Invalid input type for m_b
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+Case 7: Invalid value type in m_b
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 'a']])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
+
+Case 8: Incorrect size of row in m_b
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+Case 9: Incorrect size of row in m_a
+
+    >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4], [5, 6]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
