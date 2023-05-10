@@ -76,11 +76,6 @@ class Rectangle:
         Represents the rectangle with the # character.
         """
 
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.width] * self.height)
-
-    def __repr__(self):
-        """Return the string representation of the Rectangle."""
-
-        return "Rectangle({}, {})".format(self.width, self.height)
+        return "\n".join(["#" * self.__width] * self.__height)
