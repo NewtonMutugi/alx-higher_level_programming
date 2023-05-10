@@ -1,60 +1,70 @@
 #!/usr/bin/python3
+"""N queens problem"""
+
 import sys
 
 
-def print_board(board):
-    """Print the chessboard."""
-    for row in board:
-        print(" ".join(row))
-
-
-def is_safe(board, row, col, n):
-    """Check if it's safe to place a queen at board[row][col]."""
-    # Check this row on the left side
+def isSafe(board, row, col, N):
+    # Check this row on left side
     for i in range(col):
-        if board[row][i] == "Q":
+        if board[row][i] == 1:
             return False
+
     # Check upper diagonal on left side
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == "Q":
+        if board[i][j] == 1:
             return False
+
     # Check lower diagonal on left side
-    for i, j in zip(range(row, n), range(col, -1, -1)):
-        if board[i][j] == "Q":
+    for i, j in zip(range(row, N, 1), range(col, -1, -1)):
+        if board[i][j] == 1:
             return False
+
     return True
 
 
-def solve(board, col, n):
-    """Solve the N queens problem, starting from column col."""
-    # Base case: all queens have been placed
-    if col == n:
-        print_board(board)
+def solveNQUtil(board, col, N):
+    if col == N:
+        for i in range(N):
+            for j in range(N):
+                print(board[i][j], end=" ")
+            print()
         print()
         return True
-    # Try placing a queen in each row in the current column
-    for row in range(n):
-        if is_safe(board, row, col, n):
-            board[row][col] = "Q"
-            solve(board, col + 1, n)
-            board[row][col] = "."
-    return False
+
+    res = False
+    for i in range(N):
+        if isSafe(board, i, col, N):
+            board[i][col] = 1
+            res = solveNQUtil(board, col + 1, N) or res
+            board[i][col] = 0
+
+    return res
+
+
+def solveNQ(N):
+    board = [[0 for x in range(N)] for y in range(N)]
+
+    if not solveNQUtil(board, 0, N):
+        print("Solution does not exist")
+        return False
+
+    return True
 
 
 if __name__ == "__main__":
-    # Check the command-line arguments
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
+
     try:
-        n = int(sys.argv[1])
+        N = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
         sys.exit(1)
-    if n < 4:
+
+    if N < 4:
         print("N must be at least 4")
         sys.exit(1)
-    # Initialize an empty chessboard
-    board = [["."] * n for _ in range(n)]
-    # Solve the problem starting from the first column
-    solve(board, 0, n)
+
+    solveNQ(N)
