@@ -43,4 +43,14 @@ using MyList class
 	>>> isinstance(my_list,list)
 	True
 
+:: Case 7: check print_sorted() with empty list
+	>>> test_list = MyList()
+	>>> test_list.print_sorted()
+	[]
 
+:: Case 8: check print_sorted() returns a new list
+	>> assert my_list.print_sorted()
+	[-1, 1, 2, 3, 4, 5, 6, 10]
+	Traceback (most recent call last):
+  	...
+	AssertionError
