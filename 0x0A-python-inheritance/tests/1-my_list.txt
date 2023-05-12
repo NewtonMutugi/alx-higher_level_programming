@@ -54,3 +54,8 @@ using MyList class
 	Traceback (most recent call last):
   	...
 	AssertionError
+
+:: Case 9: check my_list is not modified
+	>>> assert my_list
+	>>>
+
