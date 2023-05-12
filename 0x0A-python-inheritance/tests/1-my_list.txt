@@ -55,7 +55,8 @@ using MyList class
   	...
 	AssertionError
 
-:: Case 9: check my_list is not modified
-	>>> assert my_list
-	>>>
-
+:: Case 9: check print_sorted() returns a new list
+	>>> new_list = my_list.print_sorted()
+	[-1, 1, 2, 3, 4, 5, 6, 10]
+	>>> isinstance(new_list, list)
+	False
