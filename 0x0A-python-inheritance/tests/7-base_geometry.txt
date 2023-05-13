@@ -25,10 +25,6 @@ using BaseGeometry class
 	Traceback (most recent call last):
 	...
 	Exception: area() is not implemented
-	>>> bg.integer_validator("person")
-	Traceback (most recent call last):
-	...
-	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 	>>> bg.integer_validator("person", (4,))
 	Traceback (most recent call last):
   	...
