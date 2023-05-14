@@ -27,5 +27,7 @@ class Student:
     def reload_from_json(self, json):
         """Replaces all attributes of the Student instance"""
         for key, value in json.items():
-            self.__dict__[key] = value
-            return self
+            try:
+                setattr(self, key, json[key])
+            except FileNotFoundError:
+                pass
