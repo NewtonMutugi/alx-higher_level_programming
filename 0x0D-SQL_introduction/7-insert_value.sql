@@ -5,7 +5,7 @@
 -- * The database name will be passed as an argument of the mysql command
 
 INSERT INTO hbtn_0c_0(
-	id, name
+	`id`, `name`
 )
 VALUES(
 	89, "Best School"
