@@ -4,7 +4,10 @@
 -- * You are not allowed to use the JOIN keyword
 -- * The database name will be passed as an argument of the mysql command
 
-SELECT cities.id, cities.name, states.name
-FROM cities, states
-WHERE cities.state_id = states.id AND states.name = 'California'
-ORDER BY cities.id ASC;
+SELECT `id`, `name`
+  FROM `cities`
+ WHERE `state_id` IN
+       (SELECT `id`
+	  FROM `states`
+	 WHERE `name` = "California")
+ ORDER BY `id`;
