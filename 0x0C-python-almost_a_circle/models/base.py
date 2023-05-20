@@ -35,4 +35,3 @@ class Base:
                                             for obj in list_objs]))
                 return filename
             return None
-
