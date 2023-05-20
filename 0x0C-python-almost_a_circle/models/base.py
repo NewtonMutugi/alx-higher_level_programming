@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Base class for all other classes in this project"""
 
+import json
+import os
+
 
 class Base:
     """Base class for all other classes in this project"""
@@ -60,7 +63,7 @@ class Base:
         import json
         filename = cls.__name__ + ".json"
 
-        if os.path.exists(file_name):
+        if os.path.exists(filename):
             with open(filename, "r") as f:
                 return [cls.create(**obj) for obj in
                         cls.from_json_string(f.read())]
