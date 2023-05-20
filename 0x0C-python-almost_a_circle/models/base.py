@@ -35,3 +35,11 @@ class Base:
                                             for obj in list_objs]))
                 return filename
             return None
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return list of JSON string representation json_string"""
+        import json
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
