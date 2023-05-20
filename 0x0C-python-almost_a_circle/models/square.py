@@ -9,11 +9,11 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize Square class"""
-        super().__init__(size, size, x, y, id)
         self.size = size
         self.__x = x
         self.__y = y
         self.__id = id
+        super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
