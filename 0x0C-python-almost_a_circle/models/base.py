@@ -2,10 +2,6 @@
 """Base class for all other classes in this project"""
 
 
-from tabnanny import filename_only
-import os
-
-
 class Base:
     """Base class for all other classes in this project"""
     __nb_objects = 0
@@ -64,8 +60,15 @@ class Base:
         import json
         filename = cls.__name__ + ".json"
 
-        if os.path.exists(filename_only):
+        if os.path.exists(file_name):
             with open(filename, "r") as f:
-                return [cls.create(**d) for d in cls.from_json_string(f.read())]
+                return [cls.create(**obj) for obj in
+                        cls.from_json_string(f.read())]
         else:
             return []
+        # try:
+        #     with open(filename, "r") as f:
+        #         return [cls.create(**obj) for obj in
+        #                 cls.from_json_string(f.read())]
+        # except FileExistsError:
+        #     return []
