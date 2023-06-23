@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-"""defines a class City that inherits from declarative_base"""
+"""
+    script that improves the city model
+"""
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
-# from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship
+
+from model_state import State
+
+Base = declarative_base()
 
 
 class City(Base):
@@ -21,7 +26,7 @@ class City(Base):
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey(State.id), nullable=False)
-    # cities = relationship("State", backref="cities")
+    cities = relationship("State", backref="cities")
 
     def __str__(self):
         """returns a string representation of the instance"""
