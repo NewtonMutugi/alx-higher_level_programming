@@ -10,23 +10,23 @@ from sqlalchemy.orm import sessionmaker
 
 
 def change_state():
-    """ changes the name of a State object from the database hbtn_0e_6_usa
-        argv[1]: mysql username
-        argv[2]: mysql password
-        argv[3]: database name
-        argv[4]: state id to update
-        argv[5]: name to update
     """
+    changes the name of a State object from the database hbtn_0e_6_usa
+    """
+
+    username = argv[1]
+    password = argv[2]
+    database = argv[3]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(argv[1], argv[2],
-                                   argv[3]), pool_pre_ping=True)
+                           .format(username, password, database),
+                           pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).filter(State.id == argv[4]).first()
-    state.name = argv[5]
+    state = session.query(State).filter_by(id=2).first()
+    state.name = 'New Mexico'
     session.commit()
     session.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     change_state()
