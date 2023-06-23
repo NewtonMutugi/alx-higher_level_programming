@@ -1,14 +1,17 @@
 #!/usr/bin/python3
-"""script that lists all State objects from the database hbtn_0e_6_usa"""
+"""
+  script that prints the first State object from the database hbtn_0e_6_usa
+"""
+
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def list_states():
+def fetch_first_state():
     """
-      lists all State objects from the database hbtn_0e_6_usa
+        prints the first State object from the database hbtn_0e_6_usa
     """
     username = argv[1]
     password = argv[2]
@@ -18,10 +21,13 @@ def list_states():
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
+    first = session.query(State).order_by(State.id).first()
+    if first is None:
+        print("Nothing")
+    else:
+        print("{}: {}".format(first.id, first.name))
     session.close()
 
 
 if __name__ == "__main__":
-    list_states()
+    fetch_first_state()
