@@ -30,8 +30,11 @@ def list_cities():
     )
     result = cur.fetchall()
 
-    for rows in result:
-        print(rows[0], end=", " if rows != result[-1] else "\n")
+    if len(result) == 0:
+        print()
+    else:
+        for rows in result:
+            print(rows[0], end=", " if rows != result[-1] else "\n")
 
     cur.close()
     db.close()
