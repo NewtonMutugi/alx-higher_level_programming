@@ -22,7 +22,7 @@ def change_state():
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).filter_by(id=2).first()
+    state = session.query(State).filter_by(State.id == 2).first()
     state.name = 'New Mexico'
     session.commit()
     session.close()
