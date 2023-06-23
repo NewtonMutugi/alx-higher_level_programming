@@ -23,9 +23,9 @@ def list_cities():
     cur.execute(
         'SELECT cities.name FROM cities \
             JOIN states ON cities.state_id = states.id \
-            WHERE states.name = %(name)s \
+            WHERE states.name LIKE BINARY %(state_name)s \
             ORDER BY cities.id ASC', {
-                'name': state_name
+                'state_name': state_name
             }
     )
     result = cur.fetchall()
