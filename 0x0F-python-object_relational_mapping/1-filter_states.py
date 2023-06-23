@@ -7,7 +7,7 @@ import MySQLdb
 import sys
 
 
-if __name__ == "__main__":
+def filter_states():
     """ Function that lists all states with a name starting with N (upper N)
         from the database hbtn_0e_0_usa.
     """
@@ -20,8 +20,13 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute(
         "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
-    rows = cur.fetchall()
-    for row in rows:
+    result = cur.fetchall()
+    for row in result:
         print(row)
+
     cur.close()
     db.close()
+
+
+if __name__ == "__main__":
+    filter_states()
