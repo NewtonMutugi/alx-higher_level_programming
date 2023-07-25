@@ -1,5 +1,6 @@
 #!/usr/bin/node
-//  script that prints all characters of a Star Wars movie:
+// script that prints all characters of a Star Wars movie:
+// Display one character name by line in the same order of the list “characters” in the /films/ response
 const request = require('request');
 const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 request(url, function (err, response, body) {
